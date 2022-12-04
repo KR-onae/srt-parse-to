@@ -11,6 +11,20 @@ String.prototype.srtDecode = function() {
 Object.prototype.srtEncode = function() {
     return module.exports.encode(this);
 }
+Number.prototype.lengthTo = function(length) {
+    var output = this.toString();
+    while(output.length > length) {
+        if(output.substr(0, 1) == "0") {
+            output = output.substr(1);
+        } else {
+            break;
+        }
+    }
+    while(output.length < length) {
+        output = "0" + output;
+    }
+    return output;
+}
 
 module.exports.decode = function(string) {
     var srt = string.toString().replaceAll("\r\n", "\n").replaceAll("\r", "\n");
@@ -51,7 +65,7 @@ module.exports.decode = function(string) {
 module.exports.encode = function(json) {
     var output = "";
     for(var i = 0; i < json.length; i++) {
-        output = `${output}${json[i].id}\n${json[i].start.hour}:${json[i].start.minute}:${json[i].start.second},${json[i].start.milisecond} --> ${json[i].end.hour}:${json[i].end.minute}:${json[i].end.second},${json[i].end.milisecond}\n${json[i].line}\n\n`;
+        output = `${output}${json[i].id}\n${json[i].start.hour.lengthTo(2)}:${json[i].start.minute.lengthTo(2)}:${json[i].start.second.lengthTo(2)},${json[i].start.milisecond.lengthTo(2)} --> ${json[i].end.hour.lengthTo(2)}:${json[i].end.minute.lengthTo(2)}:${json[i].end.second.lengthTo(2)},${json[i].end.milisecond.lengthTo(2)}\n${json[i].line}\n\n`;
     }
     return output;
 };
