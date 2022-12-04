@@ -1,0 +1,22 @@
+{
+  "name": "srt-parse",
+  "version": "1.0.0",
+  "description": "KRonae's Srt Parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "cls && node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KR-onae/srt-parse.git"
+  },
+  "keywords": [
+    "KRonae"
+  ],
+  "author": "KRonae",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KR-onae/srt-parse/issues"
+  },
+  "homepage": "https://github.com/KR-onae/srt-parse#readme"
+}
