@@ -27,7 +27,7 @@ Hello!
 00:00:03,500 --> 00:00:06,200
 World!`;
 
-console.log(srt.decode(srtFileSource));
+console.log(srt.toJSON(srtFileSource));
 ```
 However, the code below is shorter and more concise than the code above.
 ```node
@@ -41,9 +41,9 @@ Hello!
 00:00:03,500 --> 00:00:06,200
 World!`;
 
-console.log(srtFileSource.srtDecode());
+console.log(srtFileSource.srtToJSON());
 ```
-Parse the Srt code into JSON using 'String.prototype.srtDecode()'.
+Parse the Srt code into JSON using 'String.prototype.srtToJSON()' or 'Buffer.prototype.srtToJSON()'.
 
 ## 2. Usage - To Srt
 The following code converts the srt code called srtFileSource into JSON and outputs it.
@@ -58,8 +58,8 @@ Hello!
 00:00:03,500 --> 00:00:06,200
 World!`;
 
-var json = srtFileSource.srtDecode();
-console.log(srt.encode(json));
+var json = srtFileSource.srtToJSON();
+console.log(srt.toSrt(json));
 ```
 You can shorten this code too.
 ```node
@@ -73,7 +73,7 @@ Hello!
 00:00:03,500 --> 00:00:06,200
 World!`;
 
-var json = srtFileSource.srtDecode();
-console.log(json.srtEncode());
+var json = srtFileSource.srtToJSON();
+console.log(json.JSONToSrt());
 ```
-Parse JSON into Srt code using 'Object.prototype.srtEncode()' .
+Parse JSON into Srt code using 'Object.prototype.JSONToSrt()' .
